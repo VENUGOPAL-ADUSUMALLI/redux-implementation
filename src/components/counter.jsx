@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import CounterSlice from '../redux/CounterSlice'
+const actions = CounterSlice.actions
  function Counter(){
+ 
     const count = useSelector((store)=>{
       return store.countStore.count
     })
-   
+    const dispatch = useDispatch();
     function OnIncrement(){
-        // setCount(prev=>prev+1);
+       dispatch(actions.increment())
     }
     function OnDrecement(){
-        // setCount(prev =>prev-1);
+        dispatch(actions.decrement())
     }
 
  
